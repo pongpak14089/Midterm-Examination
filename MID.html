@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">      
+    <head >
+        <title>MID PONGPAK</title>
+    </head>
+    <script>
+        document.addEventListener('DOMContentLoaded',function (){      //ดาวโหลดเอกสาร
+            document.querySelector('form').onsubmit = function (){     //เมื่อไหร่ที่มีการกด onsubmit ของ form จะให้ทำงานในบรรทัดถัดไป
+            const transducer = document.querySelector('#Transducer').value;    //เอาค่าจากปุ่ม Transducer มาเก็บค่า
+            if(transducer == "flow"){
+                fetch('https://midterm-exam-010723313-2022.herokuapp.com/device?sensor_type=flow-transducer') //ดึงข้อมูลจากเว็ปนี้มาใช้
+                .then(response => response.json())     //เอาไฟล์แปลงมาเป็นไฟล์ json ถึงเอามาใช้งานได้
+                .then(flow => {         //เอาข้อมูลเก็บไว้ใน flow 
+                    console.log(flow);
+                    const number = document.querySelector('#number').value;
+                    if(number == 0){
+                        const flowname = flow[[number]].name;
+                        const flowplant = flow[[number]]["plant-site"];
+                        const flowrange = flow[[number]].range;
+                        const flowtype = flow[[number]].type;
+                        const flowunit = flow[[number]].unit;
+                        const flowvalue = flow[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${flowname}`  ;   //ให้นำข้อขวาด้านขวาไปใส่แทน บรรทัด h6
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${flowplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range  =&nbsp; ${flowrange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${flowtype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${flowunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${flowvalue}`  ;
+                    }
+                    if(number == 1){
+                        const flowname = flow[[number]].name;
+                        const flowplant = flow[[number]]["plant-site"];
+                        const flowrange = flow[[number]].range;
+                        const flowtype = flow[[number]].type;
+                        const flowunit = flow[[number]].unit;
+                        const flowvalue = flow[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${flowname}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${flowplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${flowrange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${flowtype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${flowunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${flowvalue}`  ;
+                    }
+                    if(number == 2){
+                        const flowname = flow[[number]].name;
+                        const flowplant = flow[[number]]["plant-site"];
+                        const flowrange = flow[[number]].range;
+                        const flowtype = flow[[number]].type;
+                        const flowunit = flow[[number]].unit;
+                        const flowvalue = flow[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${flowname}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${flowplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${flowrange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${flowtype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${flowunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${flowvalue}`  ;
+                    }
+                    if(number >= 3){
+                        document.querySelector('#h6').innerHTML =  `No Information Found`  ;
+                        document.querySelector('#h7').innerHTML =  ``  ;
+                        document.querySelector('#h8').innerHTML =  ``  ;
+                        document.querySelector('#h9').innerHTML =  ``  ;
+                        document.querySelector('#h10').innerHTML =  ``  ;
+                        document.querySelector('#h11').innerHTML =  ``  ;
+                    }   
+                })
+            .catch(error => {
+            console.log('Error:', error);
+            });
+
+            return false;
+            }
+            if(transducer == "level"){
+                fetch('https://midterm-exam-010723313-2022.herokuapp.com/device?sensor_type=level-transducer')
+                .then(response => response.json())
+                .then(level => {
+                    console.log(level);
+                    const number = document.querySelector('#number').value;
+                    if(number == 0){
+                        const levelname = level[[number]].name;
+                        const levelplant = level[[number]]["plant-site"];
+                        const levelrange = level[[number]].range;
+                        const leveltype = level[[number]].type;
+                        const levelunit = level[[number]].unit;
+                        const levelvalue = level[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp; ${levelname}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${levelplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${levelrange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${leveltype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${levelunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${levelvalue}`  ;
+                    }
+                    if(number == 1){
+                        const levelname = level[[number]].name;
+                        const levelplant = level[[number]]["plant-site"];
+                        const levelrange = level[[number]].range;
+                        const leveltype = level[[number]].type;
+                        const levelunit = level[[number]].unit;
+                        const levelvalue = level[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${levelname}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${levelplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${levelrange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${leveltype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${levelunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${levelvalue}`  ;
+                    }
+                    if(number == 2){
+                        const levelname = level[[number]].name;
+                        const levelplant = level[[number]]["plant-site"];
+                        const levelrange = level[[number]].range;
+                        const leveltype = level[[number]].type;
+                        const levelunit = level[[number]].unit;
+                        const levelvalue = level[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp; ${levelname}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${levelplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range &nbsp;&nbsp;&nbsp;&nbsp; =&nbsp; ${levelrange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${leveltype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${levelunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${levelvalue}`  ;
+                    }
+                    if(number >= 3){
+                        document.querySelector('#h6').innerHTML =  `No Information Found`  ;
+                        document.querySelector('#h7').innerHTML =  ``  ;
+                        document.querySelector('#h8').innerHTML =  ``  ;
+                        document.querySelector('#h9').innerHTML =  ``  ;
+                        document.querySelector('#h10').innerHTML =  ``  ;
+                        document.querySelector('#h11').innerHTML =  ``  ;
+                    }   
+                })
+            .catch(error => {
+            console.log('Error:', error);
+            });
+
+            return false;
+            }
+            if(transducer == "temperature"){
+                fetch('https://midterm-exam-010723313-2022.herokuapp.com/device?sensor_type=temperature-transducer')
+                .then(response => response.json())
+                .then(temperature => {
+                    console.log(temperature);
+                    const number = document.querySelector('#number').value;
+                    if(number == 0){
+                        const temperaturename = temperature[[number]].name;
+                        const temperatureplant = temperature[[number]]["plant-site"];
+                        const temperaturerange = temperature[[number]].range;
+                        const temperaturetype = temperature[[number]].type;
+                        const temperatureunit = temperature[[number]].unit;
+                        const temperaturevalue = temperature[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${temperaturename}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${temperatureplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${temperaturerange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${temperaturetype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${temperatureunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${temperaturevalue}`  ;
+                    }
+                    if(number == 1){
+                        const temperaturename = temperature[[number]].name;
+                        const temperatureplant = temperature[[number]]["plant-site"];
+                        const temperaturerange = temperature[[number]].range;
+                        const temperaturetype = temperature[[number]].type;
+                        const temperatureunit = temperature[[number]].unit;
+                        const temperaturevalue = temperature[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${temperaturename}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${temperatureplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${temperaturerange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${temperaturetype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${temperatureunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${temperaturevalue}`  ;
+                    }
+                    if(number == 2){
+                        const temperaturename = temperature[[number]].name;
+                        const temperatureplant = temperature[[number]]["plant-site"];
+                        const temperaturerange = temperature[[number]].range;
+                        const temperaturetype = temperature[[number]].type;
+                        const temperatureunit = temperature[[number]].unit;
+                        const temperaturevalue = temperature[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${temperaturename}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${temperatureplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${temperaturerange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${temperaturetype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${temperatureunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${temperaturevalue}`  ;
+                    }
+                    if(number >= 3){
+                        document.querySelector('#h6').innerHTML =  `No Information Found`  ;
+                        document.querySelector('#h7').innerHTML =  ``  ;
+                        document.querySelector('#h8').innerHTML =  ``  ;
+                        document.querySelector('#h9').innerHTML =  ``  ;
+                        document.querySelector('#h10').innerHTML =  ``  ;
+                        document.querySelector('#h11').innerHTML =  ``  ;
+                    }   
+                })
+            .catch(error => {
+            console.log('Error:', error);
+            });
+
+            return false;
+            }
+            if(transducer == "pressure"){
+                fetch('https://midterm-exam-010723313-2022.herokuapp.com/device?sensor_type=pressure-transducer')
+                .then(response => response.json())
+                .then(pressure => {
+                    console.log(pressure);
+                    const number = document.querySelector('#number').value;
+                    if(number == 0){
+                        const pressurename = pressure[[number]].name;
+                        const pressureplant = pressure[[number]]["plant-site"];
+                        const pressurerange = pressure[[number]].range;
+                        const pressuretype = pressure[[number]].type;
+                        const pressureunit = pressure[[number]].unit;
+                        const pressurevalue = pressure[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${pressurename}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${pressureplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${pressurerange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${pressuretype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${pressureunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${pressurevalue}`  ;
+                    }
+                    if(number == 1){
+                        const pressurename = pressure[[number]].name;
+                        const pressureplant = pressure[[number]]["plant-site"];
+                        const pressurerange = pressure[[number]].range;
+                        const pressuretype = pressure[[number]].type;
+                        const pressureunit = pressure[[number]].unit;
+                        const pressurevalue = pressure[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${pressurename}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${pressureplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${pressurerange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${pressuretype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${pressureunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${pressurevalue}`  ;
+                    }
+                    if(number == 2){
+                        const pressurename = pressure[[number]].name;
+                        const pressureplant = pressure[[number]]["plant-site"];
+                        const pressurerange = pressure[[number]].range;
+                        const pressuretype = pressure[[number]].type;
+                        const pressureunit = pressure[[number]].unit;
+                        const pressurevalue = pressure[[number]].value;
+                        document.querySelector('#h6').innerHTML =  `Name =&nbsp; ${pressurename}`  ;
+                        document.querySelector('#h7').innerHTML =  `Plant-site =&nbsp; ${pressureplant}`  ;
+                        document.querySelector('#h8').innerHTML =  `Range =&nbsp; ${pressurerange}`  ;
+                        document.querySelector('#h9').innerHTML =  `Type =&nbsp; ${pressuretype}`  ;
+                        document.querySelector('#h10').innerHTML =  `Unit =&nbsp; ${pressureunit}`  ;
+                        document.querySelector('#h11').innerHTML =  `Value =&nbsp; ${pressurevalue}`  ;
+                    }
+                    if(number >= 3){
+                        document.querySelector('#h6').innerHTML =  `No Information Found`  ;
+                        document.querySelector('#h7').innerHTML =  ``  ;
+                        document.querySelector('#h8').innerHTML =  ``  ;
+                        document.querySelector('#h9').innerHTML =  ``  ;
+                        document.querySelector('#h10').innerHTML =  ``  ;
+                        document.querySelector('#h11').innerHTML =  ``  ;
+                    }   
+                })
+            .catch(error => {
+            console.log('Error:', error);
+            });
+            return false;
+            }
+        }
+    });  
+</script>
+    <body>
+        <section>
+        <h1> Device Information </h1>
+        <form>
+            
+                <div id = "h1"></div><label>Sensor :</label>
+                <div id = "h2"></div><input autofocus id = "Transducer" placeholder="name sensor" tyep = "text" list = "datatransducer">
+                <datalist id = "datatransducer">
+                    <option value="flow">
+                    <option value="level">
+                    <option value="temperature">
+                    <option value="pressure">
+                </datalist>
+                <div id = "h3"></div><label>Number :</label>
+                <div id = "h4"></div><input id = "number" placeholder="number" tyep = "text" list = "datanumber">
+                <datalist id = "datanumber">
+                    <option value="0">
+                    <option value="1">
+                    <option value="2">
+                </datalist>
+                <div id = "h5"></div><input type = "submit" value = "Send">
+                <div id = "h6"></div>
+                <div id = "h7"></div>
+                <div id = "h8"></div>
+                <div id = "h9"></div>
+                <div id = "h10"></div>
+                <div id = "h11"></div>
+        </section>
+        </form>
+
+        
+        <aside>
+                <form action = "https://midterm-exam-010723313-2022.herokuapp.com/student_post" method = "post">
+                        <h1>Save Data</h1>
+                        Student ID :<br>
+                        <input type = "text" name = "st_id" placeholder = "st_id" ><br>
+                        Name Surname :<br>
+                        <input type = "text" name = "st_name" placeholder = "st_name"><br>
+                        Sensor Name :<br>
+                        <input type = "text" name = "sensor_name" placeholder = "sensor_name" ><br>
+                        Sensor Type :<br>
+                        <input type = "text" name = "sensor_type" placeholder = "sensor_type" ><br>
+                        Sensor Unit :<br>
+                        <input type = "text" name = "sensor_unit" placeholder = "sensor_unit" ><br>
+                        Sensor Value :<br>
+                        <input type = "text" name = "sensor_value" placeholder = "sensor_value" ><br>
+                        <input type = "submit" value = "Send">
+                </form>
+                  
+        </aside>
+        
+           
+    </body>
+    <head>
+        <style>
+            h1{
+                color: magenta;
+            }
+            body{
+                background-color: #666666;
+                background-image: url('https://cdn.discordapp.com/attachments/877007759109947452/1028245263749480508/piqsels.com-id-foeno.jpg');
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            aside{
+                text-align: center;
+                width: 300px;
+                height: 330px;
+                background-color: powderblue ;
+                float: center;
+                margin-left: 800px;
+                margin: center;
+                margin-top: 100px;
+                border-radius: 30px;
+            }
+            section{
+                text-align: center;
+                width: 300px;
+                height: 330px;
+                background-color: pink;
+                margin-left: 800px;
+                margin: center;
+                margin-top: 100px;
+                float: center;
+                border-radius: 30px;
+            }
+        </style>
+    </head>
+</html>
